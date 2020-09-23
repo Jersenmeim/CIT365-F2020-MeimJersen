@@ -63,29 +63,34 @@
             // 
             // timeLeftLabel
             // 
-            this.timeLeftLabel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.timeLeftLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timeLeftLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLeftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLeftLabel.ForeColor = System.Drawing.Color.Black;
+            this.timeLeftLabel.ForeColor = System.Drawing.Color.Transparent;
             this.timeLeftLabel.Location = new System.Drawing.Point(268, 9);
             this.timeLeftLabel.Name = "timeLeftLabel";
             this.timeLeftLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLeftLabel.TabIndex = 0;
             this.timeLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.timeLeftLabel.Click += new System.EventHandler(this.timeLeftLabel_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.label1.Location = new System.Drawing.Point(157, 9);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(187, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 28);
+            this.label1.Size = new System.Drawing.Size(119, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Time Left : ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // plusLeftLabel
             // 
-            this.plusLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusLeftLabel.BackColor = System.Drawing.Color.Transparent;
+            this.plusLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusLeftLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.plusLeftLabel.Location = new System.Drawing.Point(36, 65);
             this.plusLeftLabel.Name = "plusLeftLabel";
             this.plusLeftLabel.Size = new System.Drawing.Size(60, 50);
@@ -95,7 +100,9 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(102, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 50);
@@ -105,7 +112,9 @@
             // 
             // plusRightLabel
             // 
-            this.plusRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusRightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.plusRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusRightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.plusRightLabel.Location = new System.Drawing.Point(168, 65);
             this.plusRightLabel.Name = "plusRightLabel";
             this.plusRightLabel.Size = new System.Drawing.Size(60, 50);
@@ -115,7 +124,9 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(234, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 50);
@@ -144,7 +155,9 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(234, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 50);
@@ -155,7 +168,9 @@
             // 
             // minusRightLabel
             // 
-            this.minusRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusRightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.minusRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusRightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.minusRightLabel.Location = new System.Drawing.Point(168, 115);
             this.minusRightLabel.Name = "minusRightLabel";
             this.minusRightLabel.Size = new System.Drawing.Size(60, 50);
@@ -166,7 +181,9 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(102, 115);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 50);
@@ -177,7 +194,9 @@
             // 
             // minusLeftLabel
             // 
-            this.minusLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusLeftLabel.BackColor = System.Drawing.Color.Transparent;
+            this.minusLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusLeftLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.minusLeftLabel.Location = new System.Drawing.Point(36, 115);
             this.minusLeftLabel.Name = "minusLeftLabel";
             this.minusLeftLabel.Size = new System.Drawing.Size(60, 50);
@@ -198,7 +217,9 @@
             // 
             // label8
             // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(234, 165);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 50);
@@ -209,7 +230,9 @@
             // 
             // timesRightLabel
             // 
-            this.timesRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timesRightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timesRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timesRightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timesRightLabel.Location = new System.Drawing.Point(168, 165);
             this.timesRightLabel.Name = "timesRightLabel";
             this.timesRightLabel.Size = new System.Drawing.Size(60, 50);
@@ -220,7 +243,9 @@
             // 
             // label10
             // 
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(102, 165);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 50);
@@ -231,7 +256,9 @@
             // 
             // timesLeftLabel
             // 
-            this.timesLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timesLeftLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timesLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timesLeftLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timesLeftLabel.Location = new System.Drawing.Point(36, 165);
             this.timesLeftLabel.Name = "timesLeftLabel";
             this.timesLeftLabel.Size = new System.Drawing.Size(60, 50);
@@ -251,7 +278,9 @@
             // 
             // label12
             // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Location = new System.Drawing.Point(234, 218);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 50);
@@ -261,7 +290,9 @@
             // 
             // divisionRightLabel
             // 
-            this.divisionRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.divisionRightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.divisionRightLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.divisionRightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.divisionRightLabel.Location = new System.Drawing.Point(168, 218);
             this.divisionRightLabel.Name = "divisionRightLabel";
             this.divisionRightLabel.Size = new System.Drawing.Size(60, 50);
@@ -271,7 +302,9 @@
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Location = new System.Drawing.Point(102, 218);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 50);
@@ -281,7 +314,9 @@
             // 
             // divisionLeftLabel
             // 
-            this.divisionLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.divisionLeftLabel.BackColor = System.Drawing.Color.Transparent;
+            this.divisionLeftLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.divisionLeftLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.divisionLeftLabel.Location = new System.Drawing.Point(36, 218);
             this.divisionLeftLabel.Name = "divisionLeftLabel";
             this.divisionLeftLabel.Size = new System.Drawing.Size(60, 50);
@@ -292,13 +327,19 @@
             // startButton
             // 
             this.startButton.AutoSize = true;
+            this.startButton.BackColor = System.Drawing.Color.White;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.startButton.FlatAppearance.BorderSize = 0;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startButton.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.startButton.ForeColor = System.Drawing.Color.Black;
+            this.startButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.startButton.Location = new System.Drawing.Point(173, 281);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(138, 38);
             this.startButton.TabIndex = 1;
             this.startButton.Text = "Start the quiz";
-            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // timer1
@@ -309,9 +350,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(186, 325);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(12, 335);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Date";
             // 
@@ -319,6 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Math_Quiz.Properties.Resources.Artboard_1_100;
             this.ClientSize = new System.Drawing.Size(480, 357);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.startButton);

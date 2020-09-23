@@ -92,6 +92,11 @@ namespace Math_Quiz
 
         }
 
+        private void timeLeftLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void StartTheQuiz()
         {
             // Fill in the addition problem.
@@ -166,7 +171,9 @@ namespace Math_Quiz
                 timeLeftLabel.Text = timeLeft + " seconds";
                 if (timeLeft<6)
                 {
-                    timeLeftLabel.BackColor = Color.Red;
+                    
+                    timeLeftLabel.Font = new Font(timeLeftLabel.Font, FontStyle.Bold);
+                    timeLeftLabel.ForeColor = Color.Red;
                 }
             }
             else
