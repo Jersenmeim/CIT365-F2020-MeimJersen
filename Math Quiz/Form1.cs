@@ -185,7 +185,7 @@ namespace Math_Quiz
                 difference.Value = minuend - subtrahend;
                 product.Value = multiplicand * multiplier;
                 quotient.Value = dividend / divisor;
-                timeLeftLabel.BackColor = DefaultBackColor;
+               
                 timeLeftLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
                 startButton.Enabled = true;

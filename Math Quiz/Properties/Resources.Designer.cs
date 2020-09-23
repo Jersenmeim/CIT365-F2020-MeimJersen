@@ -73,6 +73,16 @@ namespace Math_Quiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Artboard_1_1001 {
+            get {
+                object obj = ResourceManager.GetObject("Artboard 1-1001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thiago_gomes_K0YuYMAwCTQ_unsplash {
             get {
                 object obj = ResourceManager.GetObject("thiago-gomes-K0YuYMAwCTQ-unsplash", resourceCulture);
