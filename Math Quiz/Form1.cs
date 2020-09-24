@@ -24,7 +24,7 @@ namespace Math_Quiz
         {
             InitializeComponent();
         }
-
+        //format date, Shown only the day, month and year
         private void Form1_Load(object sender, EventArgs e)
         {
             label5.Text = DateTime.Now.Date.ToLongDateString().Replace(DateTime.Now.DayOfWeek.ToString() + ", ", "");
@@ -171,7 +171,7 @@ namespace Math_Quiz
                 timeLeftLabel.Text = timeLeft + " seconds";
                 if (timeLeft<6)
                 {
-                    
+                    //change the color to red and make the font bold
                     timeLeftLabel.Font = new Font(timeLeftLabel.Font, FontStyle.Bold);
                     timeLeftLabel.ForeColor = Color.Red;
                 }
