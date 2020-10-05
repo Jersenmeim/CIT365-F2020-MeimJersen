@@ -24,6 +24,7 @@ namespace MegaDesk_Meim
         public static string total;
 
 
+
         public AddQuote()
         {
             InitializeComponent();
@@ -31,7 +32,9 @@ namespace MegaDesk_Meim
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-           
+            comboBox1.SelectedItem = "0";
+            comboBox2.SelectedItem = "Oak";
+            comboBox3.SelectedItem = "Normal";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,7 +71,7 @@ namespace MegaDesk_Meim
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-        
+            
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -115,8 +118,11 @@ namespace MegaDesk_Meim
             }
         }
 
-        
-       
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         //Validate Customer's Name
         private void textBox1_Validating(object sender, CancelEventArgs e)
@@ -200,7 +206,7 @@ namespace MegaDesk_Meim
         }
 
 
-        
+
         private void GetPrice()
         {
 
@@ -221,12 +227,7 @@ namespace MegaDesk_Meim
             deskQuotes.CalcRushOrderCost(comboBox3.Text);
             deskQuotes.CalcTotalCost();
 
-            // label11.Text = "$" + deskQuotes.OversizeCost;
-            // label10.Text = "$" + deskQuotes.DrawerCost;
-            // label9.Text = "$" + deskQuotes.MaterialCost;
-            // label8.Text = "$" + deskQuotes.RushOrderCost;
-
-            //output total price to display quote
+          
             DisplayQuote fr = new DisplayQuote();
             DisplayQuote.rushcost = "$" + deskQuotes.RushOrderCost;
             DisplayQuote.oversize = "$" + deskQuotes.OversizeCost;
@@ -235,24 +236,8 @@ namespace MegaDesk_Meim
             DisplayQuote.total = "$" + deskQuotes.TotalCost;
            
             fr.Show();
-
-            /*
-            DisplayQuote fr = new DisplayQuote(label22.Text,
-                                               label8.Text,
-                                               label9.Text,
-                                               label10.Text,
-                                               label11.Text);
-            fr.Show();
-            */
+   
         }
 
-        private void label22_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
