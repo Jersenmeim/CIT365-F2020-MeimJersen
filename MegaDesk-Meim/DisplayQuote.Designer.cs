@@ -299,6 +299,7 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "DrawCost";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 

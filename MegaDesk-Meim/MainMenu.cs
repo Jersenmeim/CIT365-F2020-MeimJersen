@@ -22,18 +22,16 @@ namespace MegaDesk_Meim
         //Button to Add Quote
         private void button1_Click(object sender, EventArgs e)
         {   
-            AddQuote addNewQuoteForm = new AddQuote();
-            addNewQuoteForm.Tag = this;
-            addNewQuoteForm.Show(this);
+            AddQuote addQuote = new AddQuote();
+            addQuote.Show(this);
             Hide();
         }
 
         //Button to View Quote
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewAllQuotes addNewQuoteForm = new ViewAllQuotes();
-            addNewQuoteForm.Tag = this;
-            addNewQuoteForm.Show(this);
+            ViewAllQuotes viewAllQuotes = new ViewAllQuotes();
+            viewAllQuotes.Show(this);
             Hide();
         }
 
@@ -41,9 +39,8 @@ namespace MegaDesk_Meim
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SearchQuotes addNewQuoteForm = new SearchQuotes();
-            addNewQuoteForm.Tag = this;
-            addNewQuoteForm.Show(this);
+            SearchQuotes searchQuotes = new SearchQuotes();
+            searchQuotes.Show(this);
             Hide();
         }
 
@@ -51,7 +48,9 @@ namespace MegaDesk_Meim
         //Button to Exit the application
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
+
+      
     }
 }
