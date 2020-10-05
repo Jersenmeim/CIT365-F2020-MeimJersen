@@ -18,10 +18,18 @@ namespace MegaDesk_Meim
         //event that return to main menu
         private void button1_Click(object sender, EventArgs e)
         {
-            UserClosing = true;
-            var returnMainMenu = (MainMenu)Tag;
-            returnMainMenu.Show();
-            Close();
+            try
+            {
+                MainMenu main = new MainMenu();
+                main.Show(this);
+                Hide();
+            }
+            catch (Exception)
+            {
+
+                Hide();
+            }
+
         }
 
         public bool UserClosing { get; set; }
