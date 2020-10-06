@@ -37,13 +37,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.NameField = new System.Windows.Forms.TextBox();
+            this.WidthField = new System.Windows.Forms.TextBox();
+            this.DepthField = new System.Windows.Forms.TextBox();
+            this.MaterialField = new System.Windows.Forms.ComboBox();
+            this.RushOrderOption = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.Drawer = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // back
@@ -158,81 +158,61 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // NameField
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.NameField.Location = new System.Drawing.Point(147, 33);
+            this.NameField.Name = "NameField";
+            this.NameField.Size = new System.Drawing.Size(120, 23);
+            this.NameField.TabIndex = 1;
+            this.NameField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.NameField.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
             // 
-            // textBox2
+            // WidthField
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 23);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
+            this.WidthField.Location = new System.Drawing.Point(147, 62);
+            this.WidthField.Name = "WidthField";
+            this.WidthField.Size = new System.Drawing.Size(120, 23);
+            this.WidthField.TabIndex = 2;
+            this.WidthField.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.WidthField.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
-            // textBox3
+            // DepthField
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 23);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
-            this.textBox3.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
+            this.DepthField.Location = new System.Drawing.Point(147, 91);
+            this.DepthField.Name = "DepthField";
+            this.DepthField.Size = new System.Drawing.Size(120, 23);
+            this.DepthField.TabIndex = 3;
+            this.DepthField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.DepthField.Validating += new System.ComponentModel.CancelEventHandler(this.textBox3_Validating);
             // 
-            // comboBox1
+            // MaterialField
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.comboBox1.Location = new System.Drawing.Point(147, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 23);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-           
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.MaterialField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MaterialField.FormattingEnabled = true;
+            this.MaterialField.Items.AddRange(new object[] {
             "Laminate",
             "Oak",
             "Rosewood",
             "Veneer",
             "Pine"});
-            this.comboBox2.Location = new System.Drawing.Point(147, 149);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(120, 23);
-            this.comboBox2.TabIndex = 5;
+            this.MaterialField.Location = new System.Drawing.Point(147, 149);
+            this.MaterialField.Name = "MaterialField";
+            this.MaterialField.Size = new System.Drawing.Size(120, 23);
+            this.MaterialField.TabIndex = 5;
             // 
-            // comboBox3
+            // RushOrderOption
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.RushOrderOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RushOrderOption.FormattingEnabled = true;
+            this.RushOrderOption.Items.AddRange(new object[] {
             "Normal",
             "3 Days",
             "5 Days",
             "7 Days"});
-            this.comboBox3.Location = new System.Drawing.Point(147, 178);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(120, 23);
-            this.comboBox3.TabIndex = 6;
+            this.RushOrderOption.Location = new System.Drawing.Point(147, 178);
+            this.RushOrderOption.Name = "RushOrderOption";
+            this.RushOrderOption.Size = new System.Drawing.Size(120, 23);
+            this.RushOrderOption.TabIndex = 6;
             // 
             // label7
             // 
@@ -249,6 +229,25 @@
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // Drawer
+            // 
+            this.Drawer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Drawer.FormattingEnabled = true;
+            this.Drawer.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.Drawer.Location = new System.Drawing.Point(147, 120);
+            this.Drawer.Name = "Drawer";
+            this.Drawer.Size = new System.Drawing.Size(120, 23);
+            this.Drawer.TabIndex = 4;
+            this.Drawer.SelectedIndexChanged += new System.EventHandler(this.Drawer_SelectedIndexChanged);
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -257,12 +256,12 @@
             this.CancelButton = this.back;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.RushOrderOption);
+            this.Controls.Add(this.MaterialField);
+            this.Controls.Add(this.Drawer);
+            this.Controls.Add(this.DepthField);
+            this.Controls.Add(this.WidthField);
+            this.Controls.Add(this.NameField);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -292,12 +291,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox WidthField;
+        private System.Windows.Forms.TextBox DepthField;
+        private System.Windows.Forms.ComboBox MaterialField;
+        private System.Windows.Forms.ComboBox RushOrderOption;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameField;
+        private System.Windows.Forms.ComboBox Drawer;
+        
+
     }
 }

@@ -22,16 +22,16 @@ namespace MegaDesk_Meim
         //Button to Add Quote
         private void button1_Click(object sender, EventArgs e)
         {   
-            AddQuote addQuote = new AddQuote();
-            addQuote.Show(this);
+            AddQuote AddQuote = new AddQuote();
+            AddQuote.Show(this);
             Hide();
         }
 
         //Button to View Quote
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewAllQuotes viewAllQuotes = new ViewAllQuotes();
-            viewAllQuotes.Show(this);
+            ViewAllQuotes ViewAllQuotes = new ViewAllQuotes();
+            ViewAllQuotes.Show(this);
             Hide();
         }
 
@@ -39,8 +39,8 @@ namespace MegaDesk_Meim
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SearchQuotes searchQuotes = new SearchQuotes();
-            searchQuotes.Show(this);
+            SearchQuotes SearchQuotes = new SearchQuotes();
+            SearchQuotes.Show(this);
             Hide();
         }
 

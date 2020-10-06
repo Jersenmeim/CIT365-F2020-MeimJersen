@@ -28,7 +28,7 @@ namespace MegaDesk_Meim
             {
 
                 Hide();
-            }
+            }   
         }
 
         public bool UserClosing { get; set; }

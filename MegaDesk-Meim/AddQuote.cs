@@ -14,13 +14,13 @@ namespace MegaDesk_Meim
     public partial class AddQuote : Form
     {
         // Make the variables accecible to all forms
-        public static string name;
-        public static double width;
-        public static double depth;
-        public static string drawer;
-        public static string material;
-        public static string rush;
-        public static string date;
+        public static string NameValue;
+        public static double WidthValue;
+        public static double DepthValue;
+        public static string MaterialUsed;
+        public static string NoOfDrawer;
+        public static string RushOption;
+        public static string DateToday;
         public static string total;
 
 
@@ -32,9 +32,9 @@ namespace MegaDesk_Meim
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedItem = "0";
-            comboBox2.SelectedItem = "Oak";
-            comboBox3.SelectedItem = "Normal";
+            Drawer.SelectedItem = "0";
+            MaterialField.SelectedItem = "Oak";
+            RushOrderOption.SelectedItem = "Normal";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -64,12 +64,11 @@ namespace MegaDesk_Meim
             
         }
 
-       
-        public bool UserClosing { get; set; }
+      
 
         
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void DrawerOption_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
@@ -96,13 +95,13 @@ namespace MegaDesk_Meim
             {
 
                 {
-                    name = textBox1.Text; //save name-data in variable
-                    width = double.Parse(textBox2.Text); //save width-data in variable
-                    depth = double.Parse(textBox3.Text); //save depth-data in variable
-                    date = DateTime.Now.Date.ToLongDateString().Replace(DateTime.Now.DayOfWeek.ToString() + ", ", "");
-                    drawer = comboBox1.Text; //Display Drawers in Panel
-                    material = comboBox2.Text; //Display Material in Panel
-                    rush = comboBox3.Text; //Display Rush Order in Panel
+                    NameValue = NameField.Text; //save name-data in variable
+                    WidthValue = double.Parse(WidthField.Text); //save width-data in variable
+                    DepthValue = double.Parse(DepthField.Text); //save depth-data in variable
+                    DateToday = DateTime.Now.Date.ToLongDateString().Replace(DateTime.Now.DayOfWeek.ToString() + ", ", "");
+                    NoOfDrawer = Drawer.Text; //Display Drawers in Panel
+                    MaterialUsed = MaterialField.Text; //Display Material in Panel
+                    RushOption = RushOrderOption.Text; //Display Rush Order in Panel
 
                     //Calling the GetPrice Method
                     GetPrice();
@@ -127,45 +126,45 @@ namespace MegaDesk_Meim
         //Validate Customer's Name
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
-            if (textBox1.Text == String.Empty)
+            if (NameField.Text == String.Empty)
             {
                 //MessageBox.Show("Please enter a Name");
-                textBox1.Text = String.Empty;
-                textBox1.BackColor = Color.Red;
+                NameField.Text = String.Empty;
+                NameField.BackColor = Color.Red;
             }
             else
             {
-                textBox1.BackColor = System.Drawing.SystemColors.Window;
+                NameField.BackColor = System.Drawing.SystemColors.Window;
             }
         }
 
         //Validate Width Values using Constraint
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
-            if (int.TryParse(textBox2.Text, out int WidthInput) == true)
+            if (int.TryParse(WidthField.Text, out int WidthInput) == true)
             {
                 if (WidthInput < Desk.MINWIDTH || WidthInput > Desk.MAXWIDTH)
                 {
                     MessageBox.Show("Please enter a width from " + Desk.MINWIDTH + " to " + Desk.MAXWIDTH + " inches");
-                    textBox2.Text = String.Empty;
-                    textBox2.BackColor = Color.Red;
-                    textBox2.Focus();
+                    WidthField.Text = String.Empty;
+                    WidthField.BackColor = Color.Red;
+                    WidthField.Focus();
                 }
                 else
                 {
-                    textBox2.BackColor = System.Drawing.SystemColors.Window;
+                    WidthField.BackColor = System.Drawing.SystemColors.Window;
                 }
             }
-            else if (int.TryParse(textBox2.Text, out WidthInput) == false && textBox2.Text.Length != 0)
+            else if (int.TryParse(WidthField.Text, out WidthInput) == false && WidthField.Text.Length != 0)
             {
                 MessageBox.Show("Please enter a number");
-                textBox2.Text = String.Empty;
-                textBox2.BackColor = Color.Red;
-                textBox2.Focus();
+                WidthField.Text = String.Empty;
+                WidthField.BackColor = Color.Red;
+                WidthField.Focus();
             }
             else
             {
-                textBox2.BackColor = System.Drawing.SystemColors.Window;
+                WidthField.BackColor = System.Drawing.SystemColors.Window;
             }
         }
 
@@ -173,18 +172,18 @@ namespace MegaDesk_Meim
 
         private void textBox3_Validating(object sender, CancelEventArgs e)
         {
-            if (int.TryParse(textBox3.Text, out int DepthInput) == true)
+            if (int.TryParse(DepthField.Text, out int DepthInput) == true)
             {
                 if (DepthInput < Desk.MINDEPTH || DepthInput > Desk.MAXDEPTH)
                 {
                     MessageBox.Show("Please enter a depth from " + Desk.MINDEPTH + " to " + Desk.MAXDEPTH + " inches");
-                    textBox3.Text = String.Empty;
-                    textBox3.BackColor = Color.Red;
-                    textBox3.Focus();
+                    DepthField.Text = String.Empty;
+                    DepthField.BackColor = Color.Red;
+                    DepthField.Focus();
                 }
                 else
                 {
-                    textBox3.BackColor = System.Drawing.SystemColors.Window;
+                    DepthField.BackColor = System.Drawing.SystemColors.Window;
                 }
             }  
         }
@@ -196,12 +195,12 @@ namespace MegaDesk_Meim
             {
                 MessageBox.Show("Please enter a number");
                 e.Handled = true;
-                textBox3.BackColor = Color.Red;
-                textBox3.Focus();
+                DepthField.BackColor = Color.Red;
+                DepthField.Focus();
             }
             else
             {
-                textBox3.BackColor = System.Drawing.SystemColors.Window;
+                DepthField.BackColor = System.Drawing.SystemColors.Window;
             }
         }
 
@@ -210,34 +209,38 @@ namespace MegaDesk_Meim
         private void GetPrice()
         {
 
-            int width = int.Parse(textBox2.Text);
-            int depth = int.Parse(textBox3.Text);
+            int width = int.Parse(WidthField.Text);
+            int depth = int.Parse(DepthField.Text);
             int size = width * depth;
            
             //Pass all values to the parameter
 
-            int.TryParse(comboBox1.Text, out int nDrawers);
+            int.TryParse(Drawer.Text, out int nDrawers);
           
-            Desk desk = new Desk(int.Parse(textBox2.Text), int.Parse(textBox3.Text), nDrawers);
-            DeskQuote deskQuotes = new DeskQuote(desk);
-       
-            deskQuotes.CalcOversizeCost();
-            deskQuotes.CalcDrawerCost();
-            deskQuotes.CalcMtrlCost(comboBox2.Text);
-            deskQuotes.CalcRushOrderCost(comboBox3.Text);
-            deskQuotes.CalcTotalCost();
+            Desk desk = new Desk(int.Parse(WidthField.Text), int.Parse(DepthField.Text), nDrawers);
+            DeskQuote DeskQuotes = new DeskQuote(desk);
+
+            DeskQuotes.CalcOversizeCost();
+            DeskQuotes.CalcDrawerCost();
+            DeskQuotes.CalcMtrlCost(MaterialField.Text);
+            DeskQuotes.CalcRushOrderCost(RushOrderOption.Text);
+            DeskQuotes.CalcTotalCost();
 
           
-            DisplayQuote fr = new DisplayQuote();
-            DisplayQuote.rushcost = "$" + deskQuotes.RushOrderCost;
-            DisplayQuote.oversize = "$" + deskQuotes.OversizeCost;
-            DisplayQuote.drawercost = "$" + deskQuotes.DrawerCost;
-            DisplayQuote.materialcost = "$" + deskQuotes.MaterialCost;
-            DisplayQuote.total = "$" + deskQuotes.TotalCost;
-           
-            fr.Show();
+            DisplayQuote DisplayQuote = new DisplayQuote();
+            DisplayQuote.RushCostValue = "$" + DeskQuotes.RushOrderCost;
+            DisplayQuote.OversizeValue = "$" + DeskQuotes.OversizeCost;
+            DisplayQuote.DrawerCostValue = "$" + DeskQuotes.DrawerCost;
+            DisplayQuote.MaterialCost = "$" + DeskQuotes.MaterialCost;
+            DisplayQuote.TotalValue = "$" + DeskQuotes.TotalCost;
+
+            DisplayQuote.Show();
    
         }
 
+        private void Drawer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

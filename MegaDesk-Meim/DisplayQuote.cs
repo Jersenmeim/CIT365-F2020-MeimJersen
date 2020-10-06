@@ -5,11 +5,11 @@ namespace MegaDesk_Meim
 {
     public partial class DisplayQuote : Form
     {
-       public static string total;
-       public static string oversize;
-       public static string rushcost;
-       public static string materialcost;
-       public static string drawercost;
+       public static string TotalValue;
+       public static string OversizeValue;
+       public static string RushCostValue;
+       public static string MaterialCost;
+       public static string DrawerCostValue;
 
 
         //Passing the total cost value from AddQuote to this form
@@ -23,25 +23,25 @@ namespace MegaDesk_Meim
 
 
 
-        public bool UserClosing { get; set; }
+       
 
 
         //Passing of all other values from AddQuote to DisplayQuote
         public void DisplayQuote_Load(object sender, EventArgs e)
         {
             
-            name.Text = AddQuote.name;
-            date.Text = AddQuote.date;
-            width.Text = AddQuote.width + " inch";
-            depth.Text = AddQuote.depth + " inch";
-            drawer.Text = AddQuote.drawer;
-            material.Text = AddQuote.material;
-            rush.Text = AddQuote.rush;
-            label1.Text = total;
-            label14.Text = oversize;
-            label9.Text = rushcost;
-            label11.Text = materialcost;
-            label12.Text = drawercost;
+            name.Text = AddQuote.NameValue;
+            date.Text = AddQuote.DateToday;
+            width.Text = AddQuote.WidthValue + " inch";
+            depth.Text = AddQuote.DepthValue + " inch";
+            drawer.Text = AddQuote.NoOfDrawer;
+            material.Text = AddQuote.MaterialUsed;
+            rush.Text = AddQuote.RushOption;
+            label1.Text = TotalValue;
+            label14.Text = OversizeValue;
+            label9.Text = RushCostValue;
+            label11.Text = MaterialCost;
+            label12.Text = DrawerCostValue;
 
         }
 
