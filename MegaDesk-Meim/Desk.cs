@@ -14,6 +14,10 @@ namespace MegaDesk_Meim
         Veneer = 125
     };
 
+    
+
+
+
     //Getter and Setter for width, depth and number of drawers
 
     class Desk
@@ -35,6 +39,18 @@ namespace MegaDesk_Meim
         public const int MINDEPTH = 12;
         public const int MAXDEPTH = 48;
 
-       
+        public static void ToList()
+        {
+            // adding elements using add() method
+            var DesktopMaterial = new List<String>();
+            DesktopMaterial.Add("Oak");
+            DesktopMaterial.Add("Laminate");
+            DesktopMaterial.Add("Pine");
+            DesktopMaterial.Add("Rosewood");
+            DesktopMaterial.Add("Veneer");
+
+        }
+
+      
     }
 }

@@ -293,12 +293,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox WidthField;
         private System.Windows.Forms.TextBox DepthField;
-        private System.Windows.Forms.ComboBox MaterialField;
-        private System.Windows.Forms.ComboBox RushOrderOption;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox NameField;
-        private System.Windows.Forms.ComboBox Drawer;
-        
-
+        public System.Windows.Forms.ComboBox MaterialField;
+        public System.Windows.Forms.ComboBox Drawer;
+        public System.Windows.Forms.ComboBox RushOrderOption;
+        public System.Windows.Forms.TextBox NameField;
     }
 }

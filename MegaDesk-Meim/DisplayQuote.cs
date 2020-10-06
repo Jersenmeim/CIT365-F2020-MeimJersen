@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MegaDesk_Meim
 {
@@ -49,13 +50,56 @@ namespace MegaDesk_Meim
         {
 
         }
-
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void back_Click_1(object sender, EventArgs e)
         {
             AddQuote addNewQuoteForm = new AddQuote();
             addNewQuoteForm.Show(this);
             Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AddQuote ne = new AddQuote();
+            ne.MaterialField.SelectedIndex = -1;
+            ne.MaterialField.DataSource = Enum.GetValues(typeof(SurfaceMaterial));
+            WriteFile();
+        }
+
+        //Writefile to quotes.json
+        private void WriteFile()
+        {
+            try
+            {
+                using (StreamWriter writeFile = new StreamWriter("quotes.json", append: true))
+                {
+                    writeFile.Write(name.Text + ",");
+                    writeFile.Write(width.Text + ",");
+                    writeFile.Write(depth.Text + ",");
+                    writeFile.Write(drawer.Text + ",");
+                    writeFile.Write(material.Text + ",");
+                    writeFile.Write(rush.Text + ",");
+                    writeFile.Write(label1.Text + ",");
+                    writeFile.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
+                    MessageBox.Show("Quote has been created!");
+
+                   
+
+                    AddQuote ne = new AddQuote();
+                    ne.MaterialField.SelectedIndex = -1;
+                    ne.Drawer.SelectedIndex = -1;
+                    ne.RushOrderOption.SelectedIndex = -1;
+                    writeFile.Close();
+                    AddQuote addNewQuoteForm = new AddQuote();
+                    addNewQuoteForm.Show(this);
+                    addNewQuoteForm.NameField.Clear();
+                    Hide();
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error when try to use StreamWriter. It says : " + e.Message);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
