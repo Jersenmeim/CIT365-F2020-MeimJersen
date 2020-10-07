@@ -79,7 +79,7 @@ namespace MegaDesk_Meim
         {
 
 
-            var lines = File.ReadAllLines("rushOrderPrices.txt");
+            var lines = File.ReadAllLines("../../../rushOrderPrices.txt");
             for (int i = 0; i < lines.Length; i++)
                 //MessageBox.Show(lines[i]);
 

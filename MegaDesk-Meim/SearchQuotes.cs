@@ -35,7 +35,7 @@ namespace MegaDesk_Meim
         {
             //read all quotes from a file then put it it desklist
             List<string[]> deskList = new List<string[]>();
-            StreamReader streamReader = new StreamReader("quotes.json");
+            StreamReader streamReader = new StreamReader("../../../quotes.json");
             string line = "";
             while ((line = streamReader.ReadLine()) != null)
             {

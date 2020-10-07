@@ -70,7 +70,7 @@ namespace MegaDesk_Meim
         {
             try
             {
-                using (StreamWriter writeFile = new StreamWriter("quotes.json", append: true))
+                using (StreamWriter writeFile = new StreamWriter("../../../quotes.json", append: true))
                 {
                     writeFile.Write(name.Text + ",");
                     writeFile.Write(width.Text + ",");
