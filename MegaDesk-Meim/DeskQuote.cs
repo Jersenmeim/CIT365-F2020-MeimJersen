@@ -71,14 +71,10 @@ namespace MegaDesk_Meim
             drawerCost = desk.NumDrawers * 50;
         }
 
-        public static void read()
-        {
+       
 
 
-        }
-
-
-        //Rush order Calculation
+        //Rush order Calculation and readfile: rushOrderPrices.txt
         public void CalcRushOrderCost(string rushOrderDays)
         {
 
@@ -86,10 +82,6 @@ namespace MegaDesk_Meim
             var lines = File.ReadAllLines("rushOrderPrices.txt");
             for (int i = 0; i < lines.Length; i++)
                 //MessageBox.Show(lines[i]);
-
-
-            //Readfile according to material used
-
 
 
             if (size < 1000)
@@ -131,12 +123,6 @@ namespace MegaDesk_Meim
         }
 
     
-
-
-
-
-
-
         //Total Cost Calculation
         public void CalcTotalCost()
         {
