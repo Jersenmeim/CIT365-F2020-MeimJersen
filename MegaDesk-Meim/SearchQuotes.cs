@@ -26,7 +26,8 @@ namespace MegaDesk_Meim
         private void button1_Click(object sender, EventArgs e)
         {
             listView2.Items.Clear();
-         
+            ReadFile();
+
         }
 
         //Readfile from quotes.json
