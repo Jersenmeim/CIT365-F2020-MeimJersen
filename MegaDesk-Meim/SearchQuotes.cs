@@ -26,13 +26,13 @@ namespace MegaDesk_Meim
         private void button1_Click(object sender, EventArgs e)
         {
             listView2.Items.Clear();
-            ReadFile();
+         
         }
 
         //Readfile from quotes.json
         private void ReadFile()
         {
-            //read all list of quotes
+            //read all quotes from a file then put it it desklist
             List<string[]> deskList = new List<string[]>();
             StreamReader streamReader = new StreamReader("quotes.json");
             string line = "";

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MegaDesk_Meim
 {
@@ -23,6 +25,8 @@ namespace MegaDesk_Meim
         }
 
 
+
+
         //Calculation for oversize cost
         public void CalcOversizeCost()
         {
@@ -30,7 +34,7 @@ namespace MegaDesk_Meim
             int depth = desk.Depth;
             size = width * depth;
             oversize = size > 1000 ? size - 1000 : 0;
-            if (oversize > 0) 
+            if (oversize > 0)
                 oversizeCost = oversize;
         }
 
@@ -67,44 +71,71 @@ namespace MegaDesk_Meim
             drawerCost = desk.NumDrawers * 50;
         }
 
+        public static void read()
+        {
+
+
+        }
+
+
         //Rush order Calculation
         public void CalcRushOrderCost(string rushOrderDays)
         {
+
+
+            var lines = File.ReadAllLines("rushOrderPrices.txt");
+            for (int i = 0; i < lines.Length; i++)
+                //MessageBox.Show(lines[i]);
+
+
+            //Readfile according to material used
+
+
+
             if (size < 1000)
             {
                 if (rushOrderDays.Equals("3 Days"))
-                    rushOrderCost = 60;
+                    rushOrderCost = Convert.ToInt32(lines[0]);//60
                 else if (rushOrderDays.Equals("5 Days"))
-                    rushOrderCost = 40;
+                    rushOrderCost = Convert.ToInt32(lines[3]);//40
                 else if (rushOrderDays.Equals("7 Days"))
-                    rushOrderCost = 30;
+                    rushOrderCost = Convert.ToInt32(lines[6]);//30
                 else
                     rushOrderCost = 0;
             }
             else if (size >= 1000 || size <= 2000)
             {
                 if (rushOrderDays.Equals("3 Days"))
-                    rushOrderCost = 70;
+                    rushOrderCost = Convert.ToInt32(lines[1]);//70
                 else if (rushOrderDays.Equals("5 Days"))
-                    rushOrderCost = 50;
+                    rushOrderCost = Convert.ToInt32(lines[4]);//50
                 else if (rushOrderDays.Equals("7 Days"))
-                    rushOrderCost = 35;
+                    rushOrderCost = Convert.ToInt32(lines[7]);//35
                 else
                     rushOrderCost = 0;
             }
             else //(size > 2000) //need to check
             {
                 if (rushOrderDays.Equals("3 Days"))
-                    rushOrderCost = 80;
+                    rushOrderCost = Convert.ToInt32(lines[2]);//80
                 else if (rushOrderDays.Equals("5 Days"))
-                    rushOrderCost = 60;
+                    rushOrderCost = Convert.ToInt32(lines[0]);//60
                 else if (rushOrderDays.Equals("7 Days"))
-                    rushOrderCost = 40;
+                    rushOrderCost = Convert.ToInt32(lines[8]);//40
                 else
                     rushOrderCost = 0;
             }
 
+
+
         }
+
+    
+
+
+
+
+
 
         //Total Cost Calculation
         public void CalcTotalCost()

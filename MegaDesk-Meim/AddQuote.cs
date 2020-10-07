@@ -36,6 +36,9 @@ namespace MegaDesk_Meim
             Drawer.SelectedItem = "0";
             MaterialField.SelectedItem = "Oak";
             RushOrderOption.SelectedItem = "Normal";
+            
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
