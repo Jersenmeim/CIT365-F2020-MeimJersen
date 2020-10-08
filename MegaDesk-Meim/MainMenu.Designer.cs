@@ -56,7 +56,7 @@
             this.button2.Location = new System.Drawing.Point(408, 107);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 40);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 1;
             this.button2.Text = "&View Quotes";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -69,7 +69,7 @@
             this.button3.Location = new System.Drawing.Point(408, 153);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 40);
-            this.button3.TabIndex = 0;
+            this.button3.TabIndex = 2;
             this.button3.Text = "&Search Quotes";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -82,7 +82,7 @@
             this.button4.Location = new System.Drawing.Point(408, 199);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 40);
-            this.button4.TabIndex = 0;
+            this.button4.TabIndex = 3;
             this.button4.Text = "E&xit";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -91,12 +91,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainMenu";

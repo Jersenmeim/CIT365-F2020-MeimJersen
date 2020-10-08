@@ -15,7 +15,7 @@ namespace MegaDesk_Meim
         {
            
             InitializeComponent();
-            srcbox.DataSource = Enum.GetValues(typeof(SurfaceMaterial));
+            srcbox.DataSource = Enum.GetValues(typeof(Material));
             listView2.Items.Clear();
         }
 

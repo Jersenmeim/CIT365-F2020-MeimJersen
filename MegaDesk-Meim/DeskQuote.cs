@@ -26,13 +26,13 @@ namespace MegaDesk_Meim
 
 
 
-
         //Calculation for oversize cost
         public void CalcOversizeCost()
         {
             int width = desk.Width;
             int depth = desk.Depth;
             size = width * depth;
+            // returns the value of its left-hand operand if it isn't null
             oversize = size > 1000 ? size - 1000 : 0;
             if (oversize > 0)
                 oversizeCost = oversize;
@@ -44,19 +44,19 @@ namespace MegaDesk_Meim
             switch (material)
             {
                 case "Laminate":
-                    materialCost = (int)SurfaceMaterial.Laminate;
+                    materialCost = (int)Material.Laminate;
                     break;
                 case "Oak":
-                    materialCost = (int)SurfaceMaterial.Oak;
+                    materialCost = (int)Material.Oak;
                     break;
                 case "Pine":
-                    materialCost = (int)SurfaceMaterial.Pine;
+                    materialCost = (int)Material.Pine;
                     break;
                 case "Rosewood":
-                    materialCost = (int)SurfaceMaterial.Rosewood;
+                    materialCost = (int)Material.Rosewood;
                     break;
                 case "Veneer":
-                    materialCost = (int)SurfaceMaterial.Veneer;
+                    materialCost = (int)Material.Veneer;
                     break;
                 default: //error or empty
                     materialCost = 0;
@@ -118,11 +118,8 @@ namespace MegaDesk_Meim
                     rushOrderCost = 0;
             }
 
-
-
         }
 
-    
         //Total Cost Calculation
         public void CalcTotalCost()
         {

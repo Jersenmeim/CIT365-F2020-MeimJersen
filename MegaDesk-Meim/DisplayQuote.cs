@@ -11,21 +11,11 @@ namespace MegaDesk_Meim
        public static string RushCostValue;
        public static string MaterialCost;
        public static string DrawerCostValue;
-
-
         //Passing the total cost value from AddQuote to this form
-
         public DisplayQuote()
         {
             InitializeComponent();
-            
-
         }
-
-
-
-       
-
 
         //Passing of all other values from AddQuote to DisplayQuote
         public void DisplayQuote_Load(object sender, EventArgs e)
@@ -43,12 +33,10 @@ namespace MegaDesk_Meim
             label9.Text = RushCostValue;
             label11.Text = MaterialCost;
             label12.Text = DrawerCostValue;
-
         }
 
         private void date_Click(object sender, EventArgs e)
         {
-
         }
         private void back_Click_1(object sender, EventArgs e)
         {
@@ -61,10 +49,9 @@ namespace MegaDesk_Meim
         {
             AddQuote ne = new AddQuote();
             ne.MaterialField.SelectedIndex = -1;
-            ne.MaterialField.DataSource = Enum.GetValues(typeof(SurfaceMaterial));
+            ne.MaterialField.DataSource = Enum.GetValues(typeof(Material));
             WriteFile();
         }
-
         //Writefile to quotes.json
         private void WriteFile()
         {
@@ -83,7 +70,6 @@ namespace MegaDesk_Meim
                     MessageBox.Show("Quote has been created!");
 
                    
-
                     AddQuote ne = new AddQuote();
                     ne.MaterialField.SelectedIndex = -1;
                     ne.Drawer.SelectedIndex = -1;

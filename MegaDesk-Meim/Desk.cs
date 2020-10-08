@@ -5,7 +5,7 @@ using System.Text;
 namespace MegaDesk_Meim
 {
     //list of material using enum method
-    public enum SurfaceMaterial
+    public enum Material
     {
         Oak = 200,
         Laminate = 100,
@@ -13,11 +13,6 @@ namespace MegaDesk_Meim
         Rosewood = 300,
         Veneer = 125
     };
-
-    
-
-
-
     //Getter and Setter for width, depth and number of drawers
 
     class Desk
@@ -49,8 +44,6 @@ namespace MegaDesk_Meim
             DesktopMaterial.Add("Rosewood");
             DesktopMaterial.Add("Veneer");
 
-        }
-
-      
+        } 
     }
 }
