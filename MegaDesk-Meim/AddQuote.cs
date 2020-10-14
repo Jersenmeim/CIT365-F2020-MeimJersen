@@ -1,11 +1,6 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq.Expressions;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -24,8 +19,6 @@ namespace MegaDesk_Meim
         public static string DateToday;
         public static string total;
 
-
-
         public AddQuote()
         {
             InitializeComponent();
@@ -36,21 +29,15 @@ namespace MegaDesk_Meim
             Drawer.SelectedItem = "0";
             MaterialField.SelectedItem = "Oak";
             RushOrderOption.SelectedItem = "Normal";
-            
-
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
         }
 
         //Back Button
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
 
             try
             {
@@ -60,21 +47,8 @@ namespace MegaDesk_Meim
             }
             catch (Exception)
             {
-
                 Hide();
             }
-           
-            
-            
-        }
-
-      
-
-        
-
-        private void DrawerOption_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -88,7 +62,7 @@ namespace MegaDesk_Meim
 
         }
 
-      
+
 
         //Storing Values to a variable
         private void button2_Click(object sender, EventArgs e)
@@ -114,10 +88,10 @@ namespace MegaDesk_Meim
             }
             catch (Exception)
             {
-               
+
                 MessageBox.Show("Could not confirm quote details. Please fill out all fields", "Error");
                 //throw;
-               
+
             }
         }
 
@@ -189,7 +163,7 @@ namespace MegaDesk_Meim
                 {
                     DepthField.BackColor = System.Drawing.SystemColors.Window;
                 }
-            }  
+            }
         }
 
         //Validate Depth Values using Keypress
@@ -208,19 +182,17 @@ namespace MegaDesk_Meim
             }
         }
 
-
-
         private void GetPrice()
         {
 
             int width = int.Parse(WidthField.Text);
             int depth = int.Parse(DepthField.Text);
             int size = width * depth;
-           
+
             //Pass all values to the parameter
 
             int.TryParse(Drawer.Text, out int nDrawers);
-          
+
             Desk desk = new Desk(int.Parse(WidthField.Text), int.Parse(DepthField.Text), nDrawers);
             DeskQuote DeskQuotes = new DeskQuote(desk);
 
@@ -230,7 +202,7 @@ namespace MegaDesk_Meim
             DeskQuotes.CalcRushOrderCost(RushOrderOption.Text);
             DeskQuotes.CalcTotalCost();
 
-          
+            //Display the quote togehter with the calculation
             DisplayQuote DisplayQuote = new DisplayQuote();
             DisplayQuote.RushCostValue = "$" + DeskQuotes.RushOrderCost;
             DisplayQuote.OversizeValue = "$" + DeskQuotes.OversizeCost;
@@ -239,12 +211,10 @@ namespace MegaDesk_Meim
             DisplayQuote.TotalValue = "$" + DeskQuotes.TotalCost;
 
             DisplayQuote.Show();
-   
         }
 
         private void Drawer_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

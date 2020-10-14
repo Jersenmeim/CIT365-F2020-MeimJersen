@@ -29,7 +29,6 @@ namespace MegaDesk_Meim
             }
             catch (Exception)
             {
-
                 Hide();
             }   
         }
@@ -41,11 +40,9 @@ namespace MegaDesk_Meim
             StreamReader jsonStream = new StreamReader("../../../quotes.json");
 
             //Store the entire file in one string.
-            string rawJson = jsonStream.ReadToEnd();
+            string Json = jsonStream.ReadToEnd();
 
-           
-            List<data> desks = JsonConvert.DeserializeObject<List<data>>(rawJson);
-
+            List<data> desks = JsonConvert.DeserializeObject<List<data>>(Json);
             //Loop through the list of desks.
             foreach (data desk in desks)
             {

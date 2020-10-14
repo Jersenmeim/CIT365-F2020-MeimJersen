@@ -15,19 +15,13 @@ namespace MegaDesk_Meim
     {
         public SearchQuotes()
         {
-           
             InitializeComponent();
         }
-
-        
-
 
         //event that return to main menu
         private void button1_Click(object sender, EventArgs e)
         {
-           
             ReadFile();
-
         }
 
         //Readfile from quotes.json
@@ -37,18 +31,18 @@ namespace MegaDesk_Meim
             StreamReader jsonStream = new StreamReader("../../../quotes.json");
 
             //Store the entire file in one string.
-            string rawJson = jsonStream.ReadToEnd();
-            string materialQuery = srcbox.SelectedItem.ToString();
+            string Json = jsonStream.ReadToEnd();
+            string materialsearch = srcbox.SelectedItem.ToString();
 
             // clear the data in grid
             dataGridView1.Rows.Clear();
             //Using JSON.NET convert the data stored in the string into a list of Desk objects.
-            List<data> desks = JsonConvert.DeserializeObject<List<data>>(rawJson);
+            List<data> desks = JsonConvert.DeserializeObject<List<data>>(Json);
 
             //Loop through the list of desks. 
             foreach (data desk in desks)
             {
-                if (desk.materials.ToString() == materialQuery)
+                if (desk.materials.ToString() == materialsearch)
                 {
                     string[] row = {
                     desk.Name
@@ -59,7 +53,6 @@ namespace MegaDesk_Meim
                     , desk.rush
                     , desk.total.ToString()
                     , desk.date};
-
                     dataGridView1.Rows.Add(row);
                 }
             }
@@ -75,21 +68,14 @@ namespace MegaDesk_Meim
             }
             catch (Exception)
             {
-
                 Hide();
             }
 
         }
 
-
         private void SearchQuotes_Load(object sender, EventArgs e)
         {
-            
          
         }
-
-      
-
-        
     }
 }

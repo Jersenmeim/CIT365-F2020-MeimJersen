@@ -2,12 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Carbon.Json;
 using System.IO;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+
 
 namespace MegaDesk_Meim
 {
@@ -18,8 +14,6 @@ namespace MegaDesk_Meim
        public static string RushCostValue;
        public static string MaterialCost;
        public static string DrawerCostValue;
-
-        public string myJsonString { get; private set; }
 
         //Passing the total cost value from AddQuote to this form
         public DisplayQuote()
@@ -97,8 +91,6 @@ namespace MegaDesk_Meim
                     addNewQuoteForm.Show(this);
                     addNewQuoteForm.NameField.Clear();
                     Hide();
-
-                
             }
             catch (Exception)
             {
@@ -108,17 +100,14 @@ namespace MegaDesk_Meim
 
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label12_Click(object sender, EventArgs e)
         {
-
         }
         //Adding to JSON
         private string AddObjectToJson<T>(string json, List<T> objects)
@@ -127,6 +116,5 @@ namespace MegaDesk_Meim
             list.AddRange(objects);
             return JsonConvert.SerializeObject(list, Formatting.Indented);
         }
-
     }
 }
