@@ -37,39 +37,21 @@ namespace MegaDesk_Meim
         private void ReadFile()
         {
             //Read from the json file.
-            StreamReader jsonStream = new StreamReader("../../../quotes.json");
+            StreamReader read = new StreamReader("../../../quotes.json");
 
             //Store the entire file in one string.
-            string Json = jsonStream.ReadToEnd();
+            string Json = read.ReadToEnd();
 
             List<data> desks = JsonConvert.DeserializeObject<List<data>>(Json);
             //Loop through the list of desks.
             foreach (data desk in desks)
             {
-                string[] row = {
-                    desk.Name
-                    , desk.widths
-                    , desk.depths
-                    , desk.drawers
-                    , desk.materials
-                    , desk.rush
-                    , desk.total.ToString()
-                    , desk.date};
-
+                string[] row = {desk.Name, desk.widths, desk.depths, desk.drawers, desk.materials, 
+                    desk.rush, desk.total.ToString(), desk.date};
+                //adding items into the row
                 dataGridView1.Rows.Add(row);
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
 

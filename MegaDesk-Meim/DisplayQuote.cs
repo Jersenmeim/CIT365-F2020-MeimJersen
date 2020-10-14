@@ -74,19 +74,19 @@ namespace MegaDesk_Meim
 
               
                 //Adding to JSON
-                var baseJson = File.ReadAllText("../../../quotes.json");
-                List<data> quoteToAdd = new List<data>() { desk };
+                var Json = File.ReadAllText("../../../quotes.json");
+                List<data> Add = new List<data>() { desk };
 
-                string updatedJson = AddObjectToJson(baseJson, quoteToAdd);
+                string update = AddObjectToJson(Json, Add);
 
-                File.WriteAllText("../../../quotes.json", updatedJson);
+                File.WriteAllText("../../../quotes.json", update);
 
                 MessageBox.Show("Quote has been created!");    
                     AddQuote ne = new AddQuote();
                     ne.MaterialField.SelectedIndex = -1;
                     ne.Drawer.SelectedIndex = -1;
                     ne.RushOrderOption.SelectedIndex = -1;
-                    //writeFile.Close();
+                  
                     AddQuote addNewQuoteForm = new AddQuote();
                     addNewQuoteForm.Show(this);
                     addNewQuoteForm.NameField.Clear();

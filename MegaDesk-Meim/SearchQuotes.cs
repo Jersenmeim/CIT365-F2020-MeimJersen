@@ -28,10 +28,10 @@ namespace MegaDesk_Meim
         private void ReadFile()
         {
             ///Read a json file.
-            StreamReader jsonStream = new StreamReader("../../../quotes.json");
+            StreamReader read = new StreamReader("../../../quotes.json");
 
-            //Store the entire file in one string.
-            string Json = jsonStream.ReadToEnd();
+            
+            string Json = read.ReadToEnd();
             string materialsearch = srcbox.SelectedItem.ToString();
 
             // clear the data in grid
@@ -44,15 +44,9 @@ namespace MegaDesk_Meim
             {
                 if (desk.materials.ToString() == materialsearch)
                 {
-                    string[] row = {
-                    desk.Name
-                    , desk.widths
-                    , desk.depths
-                    , desk.drawers
-                    , desk.materials
-                    , desk.rush
-                    , desk.total.ToString()
-                    , desk.date};
+                    string[] row = {desk.Name, desk.widths, desk.depths, desk.drawers, desk.materials, desk.rush, 
+                        desk.total.ToString(), desk.date};
+                    //adding each item to row
                     dataGridView1.Rows.Add(row);
                 }
             }
