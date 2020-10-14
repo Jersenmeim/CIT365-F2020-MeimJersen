@@ -108,5 +108,15 @@
     "rush": "3 Days",
     "total": "$710",
     "date": "10/14/2020"
+  },
+  {
+    "Name": "Ray",
+    "widths": "96 inch",
+    "depths": "48 inch",
+    "drawers": "7",
+    "materials": "Veneer",
+    "rush": "3 Days",
+    "total": "$4353",
+    "date": "10/14/2020"
   }
 ]

@@ -77,7 +77,7 @@ namespace MegaDesk_Meim
                 var Json = File.ReadAllText("../../../quotes.json");
                 List<data> Add = new List<data>() { desk };
 
-                string update = AddObjectToJson(Json, Add);
+                string update = AddObject(Json, Add);
 
                 File.WriteAllText("../../../quotes.json", update);
 
@@ -110,7 +110,7 @@ namespace MegaDesk_Meim
         {
         }
         //Adding to JSON
-        private string AddObjectToJson<T>(string json, List<T> objects)
+        private string AddObject<T>(string json, List<T> objects)
         {
             List<T> list = JsonConvert.DeserializeObject<List<T>>(json);
             list.AddRange(objects);
