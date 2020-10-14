@@ -1,6 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using Carbon.Json;
 using System.IO;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
 
 namespace MegaDesk_Meim
 {
@@ -11,6 +18,9 @@ namespace MegaDesk_Meim
        public static string RushCostValue;
        public static string MaterialCost;
        public static string DrawerCostValue;
+
+        public string myJsonString { get; private set; }
+
         //Passing the total cost value from AddQuote to this form
         public DisplayQuote()
         {
@@ -55,36 +65,44 @@ namespace MegaDesk_Meim
         //Writefile to quotes.json
         private void WriteFile()
         {
+            data desk = new data();
             try
             {
-                using (StreamWriter writeFile = new StreamWriter("../../../quotes.json", append: true))
-                {
-                    writeFile.Write(name.Text + ",");
-                    writeFile.Write(width.Text + ",");
-                    writeFile.Write(depth.Text + ",");
-                    writeFile.Write(drawer.Text + ",");
-                    writeFile.Write(material.Text + ",");
-                    writeFile.Write(rush.Text + ",");
-                    writeFile.Write(label1.Text + ",");
-                    writeFile.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
-                    MessageBox.Show("Quote has been created!");
+               
+                desk.Name = name.Text;
+                desk.widths = Convert.ToString( width.Text);
+                desk.depths = Convert.ToString(depth.Text);
+                desk.drawers = Convert.ToString(drawer.Text);
+                desk.materials = material.Text;
+                desk.rush = rush.Text;
+                desk.total = label1.Text;
+                desk.date = DateTime.Now.ToString("MM/dd/yyyy");
 
-                   
+              
+                //Adding to JSON
+                var baseJson = File.ReadAllText("../../../quotes.json");
+                List<data> quoteToAdd = new List<data>() { desk };
+
+                string updatedJson = AddObjectToJson(baseJson, quoteToAdd);
+
+                File.WriteAllText("../../../quotes.json", updatedJson);
+
+                MessageBox.Show("Quote has been created!");    
                     AddQuote ne = new AddQuote();
                     ne.MaterialField.SelectedIndex = -1;
                     ne.Drawer.SelectedIndex = -1;
                     ne.RushOrderOption.SelectedIndex = -1;
-                    writeFile.Close();
+                    //writeFile.Close();
                     AddQuote addNewQuoteForm = new AddQuote();
                     addNewQuoteForm.Show(this);
                     addNewQuoteForm.NameField.Clear();
                     Hide();
 
-                }
+                
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("Error when try to use StreamWriter. It says : " + e.Message);
+               // Console.WriteLine("Error when try to use StreamWriter. It says : " + e.Message);
             }
         }
 
@@ -102,5 +120,13 @@ namespace MegaDesk_Meim
         {
 
         }
+        //Adding to JSON
+        private string AddObjectToJson<T>(string json, List<T> objects)
+        {
+            List<T> list = JsonConvert.DeserializeObject<List<T>>(json);
+            list.AddRange(objects);
+            return JsonConvert.SerializeObject(list, Formatting.Indented);
+        }
+
     }
 }

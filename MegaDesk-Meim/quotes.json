@@ -1,16 +1,52 @@
-Jersen,44 inch,12 inch,4,Oak,Normal,$600,10/06/2020
-Steven,33 inch,22 inch,0,Pine,Normal,$250,10/06/2020
-Darlene,25 inch,45 inch,4,Rosewood,7 Days,$860,10/06/2020
-Megan,45 inch,32 inch,4,Veneer,3 Days,$1035,10/06/2020
-Steven,37 inch,13 inch,5,Veneer,3 Days,$635,10/06/2020
-Mark,34 inch,44 inch,2,Oak,7 Days,$1031,10/07/2020
-Jersen,34 inch,44 inch,2,Rosewood,7 Days,$1131,10/07/2020
-John,33 inch,23 inch,0,Oak,Normal,$400,10/07/2020
-Matthew,34 inch,45 inch,2,Rosewood,7 Days,$1165,10/07/2020
-Jared,33 inch,45 inch,3,Laminate,3 Days,$1005,10/07/2020
-Jesselle,96 inch,48 inch,7,Rosewood,3 Days,$4528,10/07/2020
-Steven,34 inch,43 inch,7,Laminate,5 Days,$1162,10/07/2020
-sd,34 inch,34 inch,0,Oak,Normal,$556,10/07/2020
-Megan,45 inch,32 inch,2,Veneer,5 Days,$915,10/07/2020
-Meim,45 inch,33 inch,4,Veneer,3 Days,$1080,10/08/2020
-Jersen,24 inch,12 inch,2,Rosewood,5 Days,$640,10/08/2020
+[
+  {
+    "Name": "32",
+    "widths": "33 inch",
+    "depths": "33 inch",
+    "drawers": "0",
+    "materials": "Oak",
+    "rush": "Normal",
+    "total": "$489",
+    "date": "10/14/2020"
+  },
+  {
+    "Name": "Jersen",
+    "widths": "43 inch",
+    "depths": "33 inch",
+    "drawers": "0",
+    "materials": "Oak",
+    "rush": "Normal",
+    "total": "$819",
+    "date": "10/14/2020"
+  },
+  {
+    "Name": "Megan",
+    "widths": "45 inch",
+    "depths": "44 inch",
+    "drawers": "3",
+    "materials": "Veneer",
+    "rush": "5 Days",
+    "total": "$1505",
+    "date": "10/14/2020"
+  },
+  {
+    "Name": "Jersen",
+    "widths": "78 inch",
+    "depths": "43 inch",
+    "drawers": "3",
+    "materials": "Pine",
+    "rush": "3 Days",
+    "total": "$2824",
+    "date": "10/14/2020"
+  },
+  {
+    "Name": "Megan",
+    "widths": "89 inch",
+    "depths": "32 inch",
+    "drawers": "1",
+    "materials": "Laminate",
+    "rush": "3 Days",
+    "total": "$2268",
+    "date": "10/14/2020"
+  }
+]

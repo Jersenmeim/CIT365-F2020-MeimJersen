@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace MegaDesk_Meim
 {
@@ -15,8 +17,6 @@ namespace MegaDesk_Meim
         {
            
             InitializeComponent();
-            srcbox.DataSource = Enum.GetValues(typeof(Material));
-            listView2.Items.Clear();
         }
 
         
@@ -25,7 +25,7 @@ namespace MegaDesk_Meim
         //event that return to main menu
         private void button1_Click(object sender, EventArgs e)
         {
-            listView2.Items.Clear();
+           
             ReadFile();
 
         }
@@ -33,34 +33,36 @@ namespace MegaDesk_Meim
         //Readfile from quotes.json
         private void ReadFile()
         {
-            //read all quotes from a file then put it it desklist
-            List<string[]> deskList = new List<string[]>();
-            StreamReader streamReader = new StreamReader("../../../quotes.json");
-            string line = "";
-            while ((line = streamReader.ReadLine()) != null)
+            ///Read a json file.
+            StreamReader jsonStream = new StreamReader("../../../quotes.json");
+
+            //Store the entire file in one string.
+            string rawJson = jsonStream.ReadToEnd();
+            string materialQuery = srcbox.SelectedItem.ToString();
+
+            // clear the data in grid
+            dataGridView1.Rows.Clear();
+            //Using JSON.NET convert the data stored in the string into a list of Desk objects.
+            List<data> desks = JsonConvert.DeserializeObject<List<data>>(rawJson);
+
+            //Loop through the list of desks. 
+            foreach (data desk in desks)
             {
-                string[] items = line.Split(',');
-                deskList.Add(items);
-            }
-
-            //get the material that user chose
-            string findThisMtrl = srcbox.SelectedValue.ToString();
-
-
-            foreach (string[] temp in deskList)
-            {
-                //Readfile according to material used
-                ListViewItem listViewItem = new ListViewItem();
-                if (temp[4].ToString().Equals(findThisMtrl))
+                if (desk.materials.ToString() == materialQuery)
                 {
-                    listViewItem.Text = temp[0];
-                    for (int i = 1; i < 8; i++)
-                        listViewItem.SubItems.Add(temp[i]);
-                    listView2.Items.Add(listViewItem);
-                }
+                    string[] row = {
+                    desk.Name
+                    , desk.widths
+                    , desk.depths
+                    , desk.drawers
+                    , desk.materials
+                    , desk.rush
+                    , desk.total.ToString()
+                    , desk.date};
 
+                    dataGridView1.Rows.Add(row);
+                }
             }
-            streamReader.Close();
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -82,14 +84,11 @@ namespace MegaDesk_Meim
 
         private void SearchQuotes_Load(object sender, EventArgs e)
         {
-            listView2.Items.Clear();
-            ReadFile();
+            
+         
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         
     }

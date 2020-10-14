@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Linq;
 
 namespace MegaDesk_Meim
 {
@@ -15,12 +16,38 @@ namespace MegaDesk_Meim
     };
     //Getter and Setter for width, depth and number of drawers
 
-    class Desk
+    public class data
     {
+        public string Name { get; set; }
+        public string widths { get; set; }
+        public string depths { get; set; }
+        public string drawers { get; set; }
+        public string materials { get; set; }
+        public string rush { get; set; }
+        public string total { get; set; }
+
+        public string date { get; set; }
+
+    }
+
+
+    public class Desk
+    {
+
+
+        public string Name { get; set; }
+        public string materials { get; set; }
+        public string rush { get; set; }
+        public string total { get; set; }
+
+        public string date { get; set; }
+
         private int width, depth, numDrawers;
         public int Width { get { return width; } set { width = value; } }
         public int Depth { get { return depth; } set { depth = value; } }
-        public int NumDrawers { get { return numDrawers; } set { numDrawers = value; } }
+        public int NumDrawers { get { return numDrawers; } set { numDrawers = value; } 
+        
+        }
        
         public Desk(int w, int d, int nd)
         {
@@ -28,6 +55,10 @@ namespace MegaDesk_Meim
             Depth = d;
             NumDrawers = nd;
         }
+
+       
+
+
         //4 constraints
         public const int MINWIDTH = 24;
         public const int MAXWIDTH = 96;
