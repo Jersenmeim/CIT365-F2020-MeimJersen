@@ -118,5 +118,15 @@
     "rush": "3 Days",
     "total": "$4353",
     "date": "10/14/2020"
+  },
+  {
+    "Name": "Spencer",
+    "widths": "47 inch",
+    "depths": "34 inch",
+    "drawers": "4",
+    "materials": "Rosewood",
+    "rush": "5 Days",
+    "total": "$1348",
+    "date": "10/16/2020"
   }
 ]
