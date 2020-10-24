@@ -1,0 +1,58 @@
+﻿@page
+@model MyScriptureJournal.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.scriptures[0].Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scriptures[0].ChapterSection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scriptures[0].Verses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scriptures[0].Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scriptures[0].DateCreated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.scriptures) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChapterSection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Scriptureid">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Scriptureid">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Scriptureid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
