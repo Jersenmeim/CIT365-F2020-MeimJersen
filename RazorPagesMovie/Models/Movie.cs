@@ -9,6 +9,8 @@ namespace RazorPagesMovie.Models
 {
     public class Movie
     {
+       
+
         public int ID { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
