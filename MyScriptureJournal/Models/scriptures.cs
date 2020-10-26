@@ -11,8 +11,9 @@ namespace MyScriptureJournal.Models
         [Key]
         public int Scriptureid { get; set; }
         public string Book { get; set; }
-        [Display(Name = "Chapter / Section")]
+        [Display(Name = "Chapter/Section")]
         public int ChapterSection { get; set; }
+        [Display(Name = "Verse/s")]
         public int Verses { get; set; }
         public string Notes { get; set; }
         [Display(Name = "Date Created")]
