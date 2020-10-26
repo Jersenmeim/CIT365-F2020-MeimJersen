@@ -66,7 +66,7 @@ namespace MyScriptureJournal.Pages
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index2");
         }
 
         private bool scripturesExists(int id)

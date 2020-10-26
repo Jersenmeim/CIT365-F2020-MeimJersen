@@ -53,7 +53,7 @@ namespace MyScriptureJournal.Pages
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index2");
         }
     }
 }

@@ -39,7 +39,7 @@ namespace MyScriptureJournal.Pages
             _context.scriptures.Add(scriptures);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index2");
         }
     }
 }

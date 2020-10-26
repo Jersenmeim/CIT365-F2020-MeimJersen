@@ -8,29 +8,43 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <div class="input-group">
+        <input name="search">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+
+    <div>
+         <a asp-page="./index2">Back to List</a>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.scriptures[0].Book)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Book)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.scriptures[0].ChapterSection)
+                @Html.DisplayNameFor(model => model.Scriptures[0].ChapterSection)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.scriptures[0].Verses)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Verses)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.scriptures[0].Notes)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Notes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.scriptures[0].DateCreated)
+                @Html.DisplayNameFor(model => model.Scriptures[0].DateCreated)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.scriptures) {
+@foreach (var item in Model.Scriptures) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Book)

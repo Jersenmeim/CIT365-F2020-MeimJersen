@@ -19,11 +19,17 @@ namespace MyScriptureJournal.Pages
             _context = context;
         }
 
-        public IList<scriptures> scriptures { get;set; }
+        public IList<scriptures> Scriptures { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string search)
         {
-            scriptures = await _context.scriptures.ToListAsync();
+            var book = from m in _context.scriptures
+                       select m;
+            if (!string.IsNullOrEmpty(search))
+            {
+                book = book.Where(s => s.Book.Contains(search));
+            }
+            Scriptures = await book.ToListAsync();
         }
     }
 }
