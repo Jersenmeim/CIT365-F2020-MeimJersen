@@ -15,14 +15,14 @@ namespace MyScriptureJournal.Models
         public string Book { get; set; }
 
         [Range(1, 150)]
-        [StringLength(3, MinimumLength = 3)]
+        
         [Display(Name = "Chapter/Section")]
         public int ChapterSection { get; set; }
         [Display(Name = "Verse/s")]
         [Range(1, 150)]
         public int Verses { get; set; }
 
-        [StringLength(500, MinimumLength = 3)]
+        [StringLength(500, MinimumLength = 1)]
         public string Notes { get; set; }
         [Display(Name = "Date Created")]
         [DataType(DataType.Date)]
