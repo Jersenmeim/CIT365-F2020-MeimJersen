@@ -18,12 +18,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="scriptures.ChapterSection" class="control-label"></label>
-                <input asp-for="scriptures.ChapterSection" class="form-control" />
+                <input min="1" max="150" asp-for="scriptures.ChapterSection" class="form-control" />
                 <span asp-validation-for="scriptures.ChapterSection" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="scriptures.Verses" class="control-label"></label>
-                <input asp-for="scriptures.Verses" class="form-control" />
+                <input min="1" max="150" asp-for="scriptures.Verses" class="form-control" />
                 <span asp-validation-for="scriptures.Verses" class="text-danger"></span>
             </div>
             <div class="form-group">

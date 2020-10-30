@@ -15,7 +15,7 @@ namespace MyScriptureJournal.Models
         public string Book { get; set; }
 
         [Range(1, 150)]
-        
+
         [Display(Name = "Chapter/Section")]
         public int ChapterSection { get; set; }
         [Display(Name = "Verse/s")]
@@ -29,5 +29,13 @@ namespace MyScriptureJournal.Models
         public DateTime DateCreated { get; set; }
 
 
+        [Display(Name = "Book")]
+        public String fbook
+        {
+            get
+            {
+                return Book + " " + ChapterSection + ":" + Verses;
+            }
+        }
     }
 }
