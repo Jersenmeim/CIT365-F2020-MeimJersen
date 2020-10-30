@@ -33,7 +33,7 @@ namespace MyScriptureJournal.Models
                     },
                     new scriptures
                     {
-                        Book = "Nephi",
+                        Book = "1 Nephi",
                         DateCreated = DateTime.Parse("2020-10-28"),
                         ChapterSection = 1,
                         Verses = 1,
