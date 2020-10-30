@@ -23,6 +23,7 @@ namespace MyScriptureJournal.Models
         public int Verses { get; set; }
 
         [StringLength(500, MinimumLength = 1)]
+
         public string Notes { get; set; }
         [Display(Name = "Date Created")]
         [DataType(DataType.Date)]

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyScriptureJournal.Migrations
 {
-    public partial class scripture : Migration
+    public partial class scriptures : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
