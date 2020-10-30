@@ -29,7 +29,7 @@ namespace MyScriptureJournal.Models
                         DateCreated = DateTime.Parse("2020-10-30"),
                         ChapterSection = 1,
                         Verses = 39,
-                        Notes = "Heavenly Fathers Work"
+                        Notes = "Heavenly Fathers Greatest Work"
                     },
                     new scriptures
                     {
@@ -41,11 +41,11 @@ namespace MyScriptureJournal.Models
                     },
                     new scriptures
                     {
-                        Book = "Doctrine and Covenant",
+                        Book = "Doctrine and Covenant", 
                         DateCreated = DateTime.Parse("2020-10-25"),
                         ChapterSection = 1,
                         Verses = 37,
-                        Notes = "Obedience"
+                        Notes = "Search these commandments"
                     },
                     new scriptures
                     {

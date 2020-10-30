@@ -10,8 +10,8 @@ using MyScriptureJournal.Data;
 namespace MyScriptureJournal.Migrations
 {
     [DbContext(typeof(MyScriptureJournalContext))]
-    [Migration("20201030042344_scriptures")]
-    partial class scriptures
+    [Migration("20201030064637_scripturs")]
+    partial class scripturs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
