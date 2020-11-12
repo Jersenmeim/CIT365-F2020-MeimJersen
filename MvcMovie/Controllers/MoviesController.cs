@@ -1,42 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
 
+
 namespace MvcMovie.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
+        [Obsolete]
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public MoviesController(MvcMovieContext context)
+        public IList<Movie> Movies { get; set; }
+
+        [Obsolete]
+        public MoviesController(MvcMovieContext context,
+                                IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString, string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
 
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            
+            ViewData["DateSortParm"] = sortOrder == "ReleasedDate" ? "date_desc" : "ReleasedDate";
+            var movies = from m in _context.Movie.Include(m => m.Genre) select m;
 
-            // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                    orderby m.Genre
-                                    select m.Genre;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
 
-            var movies = from m in _context.Movie
-                         select m;
 
             switch (sortOrder)
             {
-               
-                case "Date":
+                
+                case "ReleasedDate":
                     movies = movies.OrderBy(s => s.ReleaseDate);
                     break;
                 case "date_desc":
@@ -47,27 +57,8 @@ namespace MvcMovie.Controllers
                     break;
             }
 
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.Title.Contains(searchString));
-            }
-
-            if (!string.IsNullOrEmpty(movieGenre))
-            {
-                movies = movies.Where(x => x.Genre == movieGenre);
-            }
-
-            var movieGenreVM = new MovieGenreViewModel
-            {
-                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
-                Movies = await movies.ToListAsync()
-            };
-
-            return View(movieGenreVM);
+            return View(await movies.AsNoTracking().ToListAsync());
         }
-
-        
 
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -78,7 +69,8 @@ namespace MvcMovie.Controllers
             }
 
             var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(m => m.Genre)
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (movie == null)
             {
                 return NotFound();
@@ -90,6 +82,7 @@ namespace MvcMovie.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description");
             return View();
         }
 
@@ -98,14 +91,41 @@ namespace MvcMovie.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        [Obsolete]
+        
+        public async Task<IActionResult> Create([Bind("ID,Title,ReleaseDate,GenreID,Price,Photo")] MovieCreateViewModel movie)
         {
+            
+
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
+                string uniqueFilename = null;
+                if (movie.Photo != null)
+                {
+
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    uniqueFilename = Guid.NewGuid().ToString() + "_" + movie.Photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFilename);
+                    movie.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+                Movie m = new Movie
+                {
+                    Title = movie.Title,
+                    ReleaseDate = movie.ReleaseDate,
+                    GenreID = movie.GenreID,
+                    Price = movie.Price,
+                    PhotoPath = uniqueFilename
+                };
+
+                //_context.Add(movie);
+                _context.Add(m);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));                
             }
+
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
+            //return View(movie);
             return View(movie);
         }
 
@@ -122,7 +142,19 @@ namespace MvcMovie.Controllers
             {
                 return NotFound();
             }
-            return View(movie);
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
+
+            MovieEditViewModel m = new MovieEditViewModel
+            {
+                ID = movie.ID,
+                Title = movie.Title,
+                ReleaseDate = movie.ReleaseDate,
+                Price = movie.Price,
+                GenreID = movie.GenreID
+            };
+
+            //return View(movie);
+            return View(m);
         }
 
         // POST: Movies/Edit/5
@@ -130,9 +162,11 @@ namespace MvcMovie.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        [Obsolete]
+        
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Title,ReleaseDate,GenreID,Price,Photo")] MovieEditViewModel movie)
         {
-            if (id != movie.Id)
+            if (id != movie.ID)
             {
                 return NotFound();
             }
@@ -141,12 +175,34 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
-                    _context.Update(movie);
+                    string uniqueFilename = null;
+                    if (movie.Photo != null)
+                    {
+
+                        string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                        uniqueFilename = Guid.NewGuid().ToString() + "_" + movie.Photo.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFilename);
+                        movie.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    }
+
+                    Movie m = new Movie
+                    {
+                        ID = movie.ID,
+                        Title = movie.Title,
+                        ReleaseDate = movie.ReleaseDate,
+                        GenreID = movie.GenreID,
+                        Price = movie.Price,
+                        PhotoPath = uniqueFilename
+                    };
+                    
+
+                    //_context.Update(movie);
+                    _context.Update(m);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.Id))
+                    if (!MovieExists(movie.ID))
                     {
                         return NotFound();
                     }
@@ -157,6 +213,7 @@ namespace MvcMovie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
             return View(movie);
         }
 
@@ -169,7 +226,8 @@ namespace MvcMovie.Controllers
             }
 
             var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(m => m.Genre)
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (movie == null)
             {
                 return NotFound();
@@ -181,7 +239,7 @@ namespace MvcMovie.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, bool notUsed)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var movie = await _context.Movie.FindAsync(id);
             _context.Movie.Remove(movie);
@@ -191,7 +249,7 @@ namespace MvcMovie.Controllers
 
         private bool MovieExists(int id)
         {
-            return _context.Movie.Any(e => e.Id == id);
+            return _context.Movie.Any(e => e.ID == id);
         }
     }
 }
