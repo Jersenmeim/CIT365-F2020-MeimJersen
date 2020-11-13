@@ -14,13 +14,13 @@ for details on configuring this project to bundle and minify static web assets. 
     margin: 10px 0;
 }
 
-.bg-nav{
-    background-color:black;
-    color:white;
+.bg-nav {
+    background-color: #172d51;
+    color: white;
 }
 
 .bg-f {
-    background-color: black;
+    background-color: #172d51;
     color: white;
     margin: -10px 0;
 }
