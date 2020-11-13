@@ -30,10 +30,10 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, Genre movieGenre)
         {
 
-            
+          
             ViewData["DateSortParm"] = sortOrder == "ReleasedDate" ? "date_desc" : "ReleasedDate";
             var movies = from m in _context.Movie.Include(m => m.Genre) select m;
 
@@ -43,20 +43,21 @@ namespace MvcMovie.Controllers
             }
 
 
-            switch (sortOrder)
+            if (movieGenre == null)
             {
-                
-                case "ReleasedDate":
-                    movies = movies.OrderBy(s => s.ReleaseDate);
-                    break;
-                case "date_desc":
-                    movies = movies.OrderByDescending(s => s.ReleaseDate);
-                    break;
-                default:
-                    movies = movies.OrderBy(s => s.ReleaseDate);
-                    break;
+                movies = movies.Where(x => x.Genre == movieGenre);
             }
 
+           
+
+            movies = sortOrder switch
+            {
+                "ReleasedDate" => movies.OrderBy(s => s.ReleaseDate),
+                "date_desc" => movies.OrderByDescending(s => s.ReleaseDate),
+                _ => movies.OrderBy(s => s.ReleaseDate),
+            };
+
+          
             return View(await movies.AsNoTracking().ToListAsync());
         }
 

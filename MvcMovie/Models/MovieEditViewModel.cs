@@ -15,23 +15,24 @@ namespace MvcMovie.Models
         [Key]
         public int MovieId { get; set; }
 
+        [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string Title { get; set; }
+        public new string Title { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Release Date")]
-        public DateTime ReleaseDate { get; set; }
+        public new DateTime ReleaseDate { get; set; }
         //public string Genre { get; set; }
 
         [Display(Name = "Genre")]
-        public int GenreID { get; set; }
+        public new int GenreID { get; set; }
         [Display(Name = "Genre")]
-        public Genre Genre { get; set; }
+        public new Genre Genre { get; set; }
 
         [Required]
-        [DataType(DataType.Currency)]
+        [Range(1, 100), DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal Price { get; set; }
+        public new decimal Price { get; set; }
 
         public IFormFile Photo { get; set; }
     }

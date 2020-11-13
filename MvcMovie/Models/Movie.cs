@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace MvcMovie.Models
 {
-    public class Movie
+    public class Movie 
     {
         [Key]
         public int ID { get; set; }
 
+        [StringLength(60, MinimumLength = 3)]
         [Required]
         public string Title { get; set; }
 
@@ -26,11 +27,11 @@ namespace MvcMovie.Models
         public Genre Genre { get; set; }
 
         [Required]
-        [DataType(DataType.Currency)]
+        [Range(1, 100), DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
-        [Display(Name = "Thumbnail")]
+        [Display(Name = "PhotoUsed")]
         public string PhotoPath { get; set; }
 
         public string Rating { get; set; }
