@@ -83,7 +83,7 @@ namespace MvcMovie.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
-            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description");
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Details");
             return View();
         }
 
@@ -125,7 +125,7 @@ namespace MvcMovie.Controllers
                 return RedirectToAction(nameof(Index));                
             }
 
-            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Details", movie.GenreID);
             //return View(movie);
             return View(movie);
         }
@@ -143,7 +143,7 @@ namespace MvcMovie.Controllers
             {
                 return NotFound();
             }
-            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Details", movie.GenreID);
 
             MovieEditViewModel m = new MovieEditViewModel
             {
@@ -151,7 +151,8 @@ namespace MvcMovie.Controllers
                 Title = movie.Title,
                 ReleaseDate = movie.ReleaseDate,
                 Price = movie.Price,
-                GenreID = movie.GenreID
+                GenreID = movie.GenreID,
+                ExistingPhoto = movie.PhotoPath
             };
 
             //return View(movie);
@@ -184,6 +185,7 @@ namespace MvcMovie.Controllers
                         uniqueFilename = Guid.NewGuid().ToString() + "_" + movie.Photo.FileName;
                         string filePath = Path.Combine(uploadsFolder, uniqueFilename);
                         movie.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                       
                     }
 
                     Movie m = new Movie
@@ -214,7 +216,7 @@ namespace MvcMovie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Description", movie.GenreID);
+            ViewData["GenreID"] = new SelectList(_context.Genre, "GenreID", "Details", movie.GenreID);
             return View(movie);
         }
 

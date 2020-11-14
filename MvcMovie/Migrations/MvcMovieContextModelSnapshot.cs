@@ -26,7 +26,7 @@ namespace MvcMovie.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Details")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -59,7 +59,8 @@ namespace MvcMovie.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.HasKey("ID");
 

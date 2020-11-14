@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcMovie.Migrations
 {
-    public partial class ldsf : Migration
+    public partial class @try : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace MvcMovie.Migrations
                 {
                     GenreID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(nullable: false)
+                    Details = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,7 +26,7 @@ namespace MvcMovie.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(maxLength: 60, nullable: false),
                     ReleaseDate = table.Column<DateTime>(nullable: false),
                     GenreID = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),

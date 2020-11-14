@@ -12,6 +12,6 @@ namespace MvcMovie.Models
         public int GenreID { get; set; }
 
         [Required]
-        public string Description { get; set; }
+        public string Details { get; set; }
     }
 }

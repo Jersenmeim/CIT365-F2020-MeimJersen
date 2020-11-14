@@ -23,7 +23,7 @@ namespace MvcMovie.Models
                {
                    Title = "The Saratov Approach",
                    ReleaseDate = DateTime.Parse("2013-10-09"),
-                   Genre = new Genre { Description = "Drama Action" },
+                   Genre = new Genre { Details = "Drama Action" },
                    Rating = "PG-13",
                    Price = 9.99M,
                    PhotoPath = "../images/TheSaratovApproach.jpg"
@@ -35,7 +35,7 @@ namespace MvcMovie.Models
 
                     Title = "Meet the Mormons",
                     ReleaseDate = DateTime.Parse("2014-10-10"),
-                    Genre = new Genre { Description = "Documentary" },
+                    Genre = new Genre { Details = "Documentary" },
                     Rating = "PG",
                     Price = 9.45M,
                     PhotoPath = "../images/Meet_the_Mormons.jpg"
@@ -45,7 +45,7 @@ namespace MvcMovie.Models
                 {
                     Title = "The R.M.",
                     ReleaseDate = DateTime.Parse("2003-01-31"),
-                    Genre = new Genre { Description = "Comedy Religious" },
+                    Genre = new Genre { Details = "Comedy Religious" },
                     Rating = "G",
                     Price = 8.99M,
                     PhotoPath = "../images/TheRM.jpg"
@@ -55,7 +55,7 @@ namespace MvcMovie.Models
                 {
                     Title = "The Other Side of Heaven",
                     ReleaseDate = DateTime.Parse("2002-04-12"),
-                    Genre = new Genre { Description = "Drama Adventure" },
+                    Genre = new Genre { Details = "Drama Adventure" },
                     Rating = "PG",
                     Price = 14.09M,
                     PhotoPath = "../images/Other_Side_of Heaven.jpg"

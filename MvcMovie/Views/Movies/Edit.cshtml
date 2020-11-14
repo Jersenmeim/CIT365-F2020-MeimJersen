@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    var photoPath = "~/images/" + (Model.ExistingPhoto ?? "noimage.jpg");
 }
 
 <h1>Edit</h1>
@@ -13,6 +14,10 @@
         <form enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MovieId" />
+            <input hidden asp-for="ExistingPhoto" />
+             <div class="form-group row col-sm-4 offset-4">
+                <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+             </div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -42,13 +47,15 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                 <a asp-action="Index" class="btn btn-danger" >Cancel</a>
             </div>
         </form>
+
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
 
 @section Scripts {

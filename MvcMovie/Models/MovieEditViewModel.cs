@@ -35,5 +35,7 @@ namespace MvcMovie.Models
         public new decimal Price { get; set; }
 
         public IFormFile Photo { get; set; }
+
+        public string ExistingPhoto { get; set; }
     }
 }
