@@ -9,12 +9,12 @@ namespace ContosoUniversity.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Student Last Name")]
         public string LastName { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
         [Column("FirstName")]
-        [Display(Name = "First Name")]
+        [Display(Name = "Student First Name")]
         public string FirstMidName { get; set; }
 
         [Display(Name = "Full Name")]
