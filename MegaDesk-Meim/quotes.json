@@ -128,5 +128,15 @@
     "rush": "5 Days",
     "total": "$1348",
     "date": "10/16/2020"
+  },
+  {
+    "Name": "Jersen",
+    "widths": "45 inch",
+    "depths": "44 inch",
+    "drawers": "1",
+    "materials": "Veneer",
+    "rush": "3 Days",
+    "total": "$1425",
+    "date": "11/28/2020"
   }
 ]
